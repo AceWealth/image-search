@@ -17,6 +17,7 @@ import React, { useState, useEffect } from 'react';
 import { BING_API_KEY, IS_BING_ENABLED, FLICKR_API_KEY, IS_FLICKR_ENABLED } from './settings';
 import { BingSearchClient } from './BingSearchClient'
 import Flickr from 'flickr-sdk';
+import { runInfo } from '@airtable/blocks';
 
 export function SettingsView({ appState, setAppState, setIsSettingsVisible }) {
   const globalConfig = useGlobalConfig();
@@ -79,11 +80,11 @@ export function SettingsView({ appState, setAppState, setIsSettingsVisible }) {
       <Box maxWidth='calc(100% - 50px)'>
         <form onSubmit={saveSettings}>
           <Box paddingBottom='10px'>
-            <Heading size="xlarge">Image Search &amp; Import Block</Heading>
+            <Heading size="xlarge">{runInfo.isFirstRun ? "Welcome to " : ""}Image Search Block</Heading>
           </Box>
 
           <Box paddingBottom='10px'>
-            <Text size='xlarge'>Search and import images from <Link size="xlarge" href="https://www.bing.com/" target="_blank">Bing</Link> or <Link size="xlarge" href="https://www.flickr.com/" target="_blank">Flickr</Link> into your base for collecting image data.</Text>
+            <Text size='xlarge'>Search and import images from <Link size="xlarge" href="https://www.bing.com/" target="_blank">Bing</Link> or <Link size="xlarge" href="https://www.flickr.com/" target="_blank">Flickr</Link> into your base. </Text>
           </Box>
 
           <Box>

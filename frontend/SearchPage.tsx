@@ -138,7 +138,7 @@ export function SearchPage({ appState, setAppState }) {
         alignItems="center"
         justifyContent="center"
         padding={0}>
-        <Heading size="xlarge">Search Images</Heading>
+        <Heading size="xlarge">Image Search</Heading>
         {
           isLoading &&
           <Box display='block' zIndex={10}><Loader scale={0.5} /></Box>
