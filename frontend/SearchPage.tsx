@@ -16,6 +16,8 @@ import _ from 'lodash';
 import { BING, BING_API_KEY, IS_BING_ENABLED, FLICKR, FLICKR_API_KEY, IS_FLICKR_ENABLED, useSettings, bingThumbnailUrlFor } from './settings';
 import { BingSearchClient } from './BingSearchClient';
 import Flickr from 'flickr-sdk';
+import { runInfo } from '@airtable/blocks';
+import { debug } from './utils';
 
 export function SearchPage({ appState, setAppState }) {
   const viewport = useViewport();
@@ -96,12 +98,13 @@ export function SearchPage({ appState, setAppState }) {
             extras: 'owner_name,tags,url_q,url_z,url_o,license',
           });
           setLoading(false);
+          debug(res);
 
           const photos = res.body.photos.photo.map(function (pic) {
             return {
               source: FLICKR,
               id: pic.id,
-              url: pic.url_o || pic.url_z,
+              url: pic.url_o || pic.url_z || pic.url_q,
               title: pic.title,
               thumbnailUrl: pic.url_q,
               sourceUrl: `https://www.flickr.com/photos/${pic.owner}/${pic.id}`

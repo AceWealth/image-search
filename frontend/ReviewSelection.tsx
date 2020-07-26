@@ -149,10 +149,20 @@ export function ReviewSelection({ appState, setAppState }) {
                           </Box>
                         </Box>
 
-                        <Box display='block' width={300} paddingBottom='10px'>
-                          <Heading variant="caps" size="xsmall" textColor="light">Source</Heading>
-                          <Box display="flex" flexWrap="wrap">
-                            {_.capitalize(pic.source)}
+                        <Box>
+                          <Box display="flex" marginTop='3px'>
+                            <Box display='block' width='400px' paddingBottom='10px'>
+                              <Heading variant="caps" size="xsmall" textColor="light">Source</Heading>
+                              <Box display="flex" flexWrap="wrap">
+                                {_.capitalize(pic.source)}
+                              </Box>
+                            </Box>
+                            <Box display='block' width='calc(100% - 400px)' paddingBottom='10px'>
+                              <Heading variant="caps" size="xsmall" textColor="light">Image URL</Heading>
+                              <Box display="flex" flexWrap="wrap">
+                                <Link href={pic.url} target="_blank">{pic.url}</Link>
+                              </Box>
+                            </Box>
                           </Box>
                         </Box>
                       </Box>
