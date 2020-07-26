@@ -3,8 +3,11 @@ import {
 } from '@airtable/blocks/ui';
 import { isEmpty, isNotEmpty } from './utils';
 
+export const BING = "bing";
 export const BING_API_KEY = "bingApiKey";
 export const IS_BING_ENABLED = "isBingEnabled";
+
+export const FLICKR = "flickr";
 export const FLICKR_API_KEY = "flickrApiKey";
 export const IS_FLICKR_ENABLED = "isFlickrEnabled";
 
@@ -20,14 +23,16 @@ export function useSettings() {
 
   let settings = {};
   const isBingEnabled = globalConfig.get(IS_BING_ENABLED) as boolean;
+  settings[IS_BING_ENABLED] = isBingEnabled;
   if (isBingEnabled) {
     const bingApiKey = globalConfig.get(BING_API_KEY) as string;
-    settings['bingApiKey'] = bingApiKey;
+    settings[BING_API_KEY] = bingApiKey;
   }
   const isFlickrEnabled = globalConfig.get(IS_FLICKR_ENABLED) as boolean;
+  settings[IS_FLICKR_ENABLED] = isFlickrEnabled;
   if (isFlickrEnabled) {
     const flickrApiKey = globalConfig.get(FLICKR_API_KEY) as string;
-    settings['flickrApiKey'] = flickrApiKey;
+    settings[FLICKR_API_KEY] = flickrApiKey;
   }
 
   if (!isBingEnabled && !isFlickrEnabled) {

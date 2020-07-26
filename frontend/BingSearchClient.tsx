@@ -32,6 +32,13 @@ export type SearchResults = {
   value: Array<SearchResult>,
 }
 
+export type ErrorResponse = {
+  error: {
+    code: string,
+    message: string,
+  }
+}
+
 export class BingSearchClient {
   private apiKey: string
   private endpoint?: string
@@ -43,7 +50,7 @@ export class BingSearchClient {
     this.clientId = clientId;
   }
 
-  async search(q: string): Promise<SearchResults> {
+  async search(q: string): Promise<SearchResults | ErrorResponse> {
     var queryurl = this.endpoint + "?q=" + encodeURIComponent(q) + "&count=150";
     const headers = {
       "Ocp-Apim-Subscription-Key": this.apiKey,

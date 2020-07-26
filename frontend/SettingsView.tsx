@@ -75,7 +75,7 @@ export function SettingsView({ appState, setAppState, setIsSettingsVisible }) {
   }
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" border="default" flexDirection="column" width={viewport.size.width} height={600} padding={0}>
+    <Box display="flex" alignItems="center" justifyContent="center" border="default" flexDirection="column" width={viewport.size.width} height={viewport.size.height} padding={0}>
       <Box maxWidth='calc(100% - 50px)'>
         <form onSubmit={saveSettings}>
           <Box paddingBottom='10px'>
