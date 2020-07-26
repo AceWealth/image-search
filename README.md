@@ -5,6 +5,10 @@ Image Search is an Airtable block that helps you use Bing / Flickr Image Search 
 ## Cavets
 The images that are being imported into the base are copyright of the respective website(s). Block also imports the source website url as part of the import and you should contact them / the author to seek permission on using the images for any purposes that are not explicitly laid out under the respective copyright sections of the website(s).
 
+## Demo
+
+[![Demo of Image Search Block](https://img.youtube.com/vi/QvH_vnY3JkI/0.jpg)](https://www.youtube.com/watch?v=QvH_vnY3JkI)
+
 ## How to remix this block
 
 1. Create a new base (or you can use an existing base).
