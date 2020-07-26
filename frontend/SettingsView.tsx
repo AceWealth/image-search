@@ -12,6 +12,7 @@ import {
   Icon,
   Loader,
   SwitchSynced,
+  loadCSSFromString,
 } from '@airtable/blocks/ui';
 import React, { useState, useEffect } from 'react';
 import { BING_API_KEY, IS_BING_ENABLED, FLICKR_API_KEY, IS_FLICKR_ENABLED } from './settings';
@@ -20,6 +21,13 @@ import Flickr from 'flickr-sdk';
 import { runInfo } from '@airtable/blocks';
 
 export function SettingsView({ appState, setAppState, setIsSettingsVisible }) {
+  loadCSSFromString(`
+    .blur-on-lose-focus:not(:focus) {
+      color: transparent;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+  `)
+
   const globalConfig = useGlobalConfig();
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
