@@ -44,7 +44,6 @@ export function SearchPage({ appState, setAppState }) {
     e.preventDefault();
     setLoading(true);
 
-    console.log(searchProvider);
     switch (searchProvider) {
       case BING:
         const bingApiKey = settings.settings[BING_API_KEY];
