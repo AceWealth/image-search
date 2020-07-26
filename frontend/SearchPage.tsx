@@ -62,6 +62,7 @@ export function SearchPage({ appState, setAppState }) {
               url: pic.contentUrl,
               title: pic.name,
               thumbnailUrl: bingThumbnailUrlFor(pic),
+              sourceUrl: pic.hostPageUrl,
             }
           });
 
@@ -103,6 +104,7 @@ export function SearchPage({ appState, setAppState }) {
               url: pic.url_o || pic.url_z,
               title: pic.title,
               thumbnailUrl: pic.url_q,
+              sourceUrl: `https://www.flickr.com/photos/${pic.owner}/${pic.id}`
             }
           });
 

@@ -55,6 +55,7 @@ export function ReviewSelection({ appState, setAppState }) {
     const fields = [
       { name: 'Image Id', type: FieldType.SINGLE_LINE_TEXT },
       { name: 'Source', type: FieldType.SINGLE_LINE_TEXT },
+      { name: 'Source URL', type: FieldType.URL },
       { name: 'Title', type: FieldType.SINGLE_LINE_TEXT },
       { name: 'Image URL', type: FieldType.URL },
       { name: 'Image', type: FieldType.MULTIPLE_ATTACHMENTS },
@@ -83,6 +84,7 @@ export function ReviewSelection({ appState, setAppState }) {
         fields: {
           'Image Id': pic.id,
           'Source': pic.source,
+          'Source URL': pic.sourceUrl,
           'Title': pic.title,
           'Image URL': pic.url,
           'Image': [{ url: pic.url }],
@@ -137,10 +139,17 @@ export function ReviewSelection({ appState, setAppState }) {
                           <Text>{pic.id || "N/A"}</Text>
                         </Box>
 
-                        <Box display='block' width={viewport.size.width - (1000)} paddingBottom='10px'>
+                        <Box display='block' width={300} paddingBottom='10px'>
                           <Heading variant="caps" size="xsmall" textColor="light">Source</Heading>
                           <Box display="flex" flexWrap="wrap">
-                            {pic.source}
+                            {_.capitalize(pic.source)}
+                          </Box>
+                        </Box>
+
+                        <Box display='block' width={viewport.size.width - (1000)} paddingBottom='10px'>
+                          <Heading variant="caps" size="xsmall" textColor="light">Source URL</Heading>
+                          <Box display="flex" flexWrap="wrap">
+                            <Link href={pic.sourceUrl} target="_blank">{pic.sourceUrl}</Link>
                           </Box>
                         </Box>
                       </Box>
