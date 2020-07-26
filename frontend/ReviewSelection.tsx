@@ -9,7 +9,7 @@ import {
   Loader,
 } from '@airtable/blocks/ui';
 import _ from 'lodash';
-import React, { useState, PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import CSS from 'csstype';
 import { FieldType } from '@airtable/blocks/models';
 import { createRecordsInBatches } from './utils';
@@ -133,23 +133,26 @@ export function ReviewSelection({ appState, setAppState }) {
                   <Box key={pic.id} border="thick" width='100%' display="flex" justifyContent="space-between" marginTop='5px' marginBottom='5px'>
                     <Box paddingTop='10px' paddingLeft='10px' display="block" justifyContent="left">
                       <Heading size="xsmall">{pic.title}</Heading>
-                      <Box display="flex" marginTop='3px'>
-                        <Box display='block' width='400px' paddingRight='5px'>
-                          <Heading variant="caps" size="xsmall" textColor="light">Image Id</Heading>
-                          <Text>{pic.id || "N/A"}</Text>
+                      <Box>
+                        <Box display="flex" marginTop='3px'>
+                          <Box display='block' width='400px' paddingRight='5px'>
+                            <Heading variant="caps" size="xsmall" textColor="light">Image Id</Heading>
+                            <Text>{pic.id || "N/A"}</Text>
+                          </Box>
+
+
+                          <Box display='block' width='calc(100% - 400px)' paddingBottom='10px'>
+                            <Heading variant="caps" size="xsmall" textColor="light">Source URL</Heading>
+                            <Box display="flex" flexWrap="wrap">
+                              <Link href={pic.sourceUrl} target="_blank">{pic.sourceUrl}</Link>
+                            </Box>
+                          </Box>
                         </Box>
 
                         <Box display='block' width={300} paddingBottom='10px'>
                           <Heading variant="caps" size="xsmall" textColor="light">Source</Heading>
                           <Box display="flex" flexWrap="wrap">
                             {_.capitalize(pic.source)}
-                          </Box>
-                        </Box>
-
-                        <Box display='block' width={viewport.size.width - (1000)} paddingBottom='10px'>
-                          <Heading variant="caps" size="xsmall" textColor="light">Source URL</Heading>
-                          <Box display="flex" flexWrap="wrap">
-                            <Link href={pic.sourceUrl} target="_blank">{pic.sourceUrl}</Link>
                           </Box>
                         </Box>
                       </Box>

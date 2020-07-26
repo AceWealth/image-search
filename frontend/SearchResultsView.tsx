@@ -69,12 +69,12 @@ export function SearchResultsView({ appState, setAppState }) {
           </Box>
         </Box>
       </Box>
-      <Box display="flex" flexWrap="wrap" paddingTop='50px'>
+      <Box display="flex" flexWrap="wrap" paddingTop='50px' justifyContent='space-between'>
         {
           appState.state.results.map((pic, index) => {
             const boxStyle = isPicSelected(pic) ? selectedImageStyle : unselectedStyle;
             return (
-              <Box display="flex" key={pic.id} style={boxStyle} >
+              <Box display="flex" key={pic.id} style={boxStyle} paddingBottom='8.85px'>
                 <img src={pic.thumbnailUrl} id={pic.id} onClick={toggleSelection(pic)} width={FIXED_THUMBNAIL_WIDTH} height={FIXED_THUMBNAIL_HEIGHT} />
               </Box>
             )

@@ -5,7 +5,7 @@ import {
     useSettingsButton,
     Box,
 } from '@airtable/blocks/ui';
-import {viewport, runInfo} from '@airtable/blocks';
+import { viewport, runInfo } from '@airtable/blocks';
 
 import React, { useState, useEffect } from 'react';
 import { SettingsView } from './SettingsView';
@@ -20,15 +20,8 @@ type AppState = {
     state: object,
 }
 
-viewport.addMinSize({
-    // height: 800,
-    width: 1501,
-});
-
-viewport.addMaxFullscreenSize({
-    // height: 800,
-    width: 1501,
-});
+viewport.addMinSize({ width: 1112 });
+viewport.addMaxFullscreenSize({ width: 1112, height: 818 });
 
 function SearchAndImportImagesBlock() {
     const viewport = useViewport();
@@ -48,7 +41,7 @@ function SearchAndImportImagesBlock() {
     const [appState, setAppState] = useState<AppState>({ index: 1, state: {} });
 
     if (!isValid || isSettingsVisible) {
-        return (<SettingsView appState={appState} setAppState={setAppState} setIsSettingsVisible={setIsSettingsVisible}/>);
+        return (<SettingsView appState={appState} setAppState={setAppState} setIsSettingsVisible={setIsSettingsVisible} />);
     }
 
     switch (appState.index) {
